@@ -120,6 +120,13 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertTrue(result[0]['text'] == self.text)
         print ('End: test_list_todo')
 
+    def test_list_todo_noTable(self):
+        print ('---------------------')
+        print ('Start: test_list_todo_noTable')
+        from src.todoList import get_items
+        result = get_items()
+        self.assertTrue(len(result) == 0)
+        print ('End: test_list_todo_noTable')
 
     def test_update_todo(self):
         print ('---------------------')

@@ -10,6 +10,7 @@ from botocore.exceptions import ClientError
 def get_table(dynamodb=None):
     if not dynamodb:
         URL = os.environ['ENDPOINT_OVERRIDE']
+        #URL = "http://dynamodb:8000"
         if URL:
             print('URL dynamoDB:'+URL)
             boto3.client = functools.partial(boto3.client, endpoint_url=URL)
