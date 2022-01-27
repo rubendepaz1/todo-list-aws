@@ -1,6 +1,5 @@
 import json
 import decimalencoder
-import todoList
 import translate
 
 
@@ -19,4 +18,3 @@ def getTranslate(event, context):
             "body": ""
         }
     return response
-    
