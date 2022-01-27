@@ -39,9 +39,8 @@ def ingles(key, dynamodb=None):
     else:
         print('Result getItem:'+str(result))
         if 'Item' in result:
-            item = result['Item']
             result_translate = translate.translate_text(
-                Text=item['Text'],
+                Text=result['Item']['Text'],
                 SourceLanguageCode=sourceLanguage,
                 TargetLanguageCode=targetLanguage)
             return result_translate.get('TranslatedText')
