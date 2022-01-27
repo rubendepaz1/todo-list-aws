@@ -66,6 +66,19 @@ Resources:
           Properties:
             Path: /todos/{id}
             Method: get
+  GetTranslateTodoFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: src/
+      Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/LabRole"
+      Handler: getTranslate.getTranslate
+      Runtime: python3.7
+      Events:
+        Create:
+          Type: Api
+          Properties:
+            Path: /todos/{id}
+            Method: get
   UpdateTodoFunction:
     Type: AWS::Serverless::Function 
     Properties:
