@@ -20,8 +20,8 @@ def get_table(dynamodb=None):
 
 def ingles(key, dynamodb=None):
 
-    sourceLanguage = 'es'
-    targetLanguage = 'en'
+    sourceLanguage = 'en'
+    targetLanguage = 'fr'
 
     # cliente para traducir
     translate = boto3.client('translate')
