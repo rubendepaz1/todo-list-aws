@@ -20,7 +20,7 @@ def get_table(dynamodb=None):
 
 def ingles(key, dynamodb=None):
 
-    sourceLanguage = 'en'
+    #sourceLanguage = 'en'
     targetLanguage = 'fr'
 
     # cliente para traducir
