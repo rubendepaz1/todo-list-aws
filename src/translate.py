@@ -18,10 +18,10 @@ def get_table(dynamodb=None):
     return table
 
 
-def ingles(key, dynamodb=None):
+def get_item_translated(key, language, dynamodb=None):
 
-    # sourceLanguage = 'en'
-    targetLanguage = 'fr'
+    sourceLanguage = 'en'
+    # targetLanguage = 'en'
 
     # cliente para traducir
     translate = boto3.client('translate')
@@ -41,5 +41,6 @@ def ingles(key, dynamodb=None):
         if 'Item' in result:
             result_translate = translate.translate_text(
                 Text=result['Item']['text'],
-                TargetLanguageCode=targetLanguage)
+                SourceLanguageCode=sourceLanguage,
+                TargetLanguageCode=language)
             return result_translate.get('TranslatedText')
