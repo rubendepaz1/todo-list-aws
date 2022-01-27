@@ -77,7 +77,7 @@ Resources:
         Create:
           Type: Api
           Properties:
-            Path: /todos/{id}
+            Path: /todos/{id}/{language}
             Method: get
   UpdateTodoFunction:
     Type: AWS::Serverless::Function 
