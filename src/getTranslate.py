@@ -6,7 +6,8 @@ import translate
 def getTranslate(event, context):
     # create a response
     item = translate.get_item_translated(
-        event['pathParameters']['id']['language'])
+        event['pathParameters']['id'],
+        event['pathParameters']['language'])
     if item:
         response = {
             "statusCode": 200,
