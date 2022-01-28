@@ -120,14 +120,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertTrue(result[0]['text'] == self.text)
         print ('End: test_list_todo')
 
-    def test_list_todo_noTable(self):
-        print ('---------------------')
-        print ('Start: test_list_todo_noTable')
-        from src.todoList import get_items
-        result = get_items()
-        self.assertTrue(len(result) == 0)
-        print ('End: test_list_todo_noTable')
-
     def test_update_todo(self):
         print ('---------------------')
         print ('Start: test_update_todo')
@@ -206,6 +198,24 @@ class TestDatabaseFunctions(unittest.TestCase):
         # Testing file functions
         self.assertRaises(TypeError, delete_item("", self.dynamodb))
         print ('End: test_delete_todo_error')
+
+    # --- Test añadidos Rubén de Paz ----
+    
+    def test_get_table_error(self):
+        print ('---------------------')
+        print ('Start: test_get_table_error')
+        # Testing file functions
+        from src.todoList import get_table
+        self.assertRaises(Exception, get_table())
+        print ('End: test_get_table_error')
+
+    def test_update_item_error(self):
+        print ('---------------------')
+        print ('Start: test_update_item_error')
+        # Testing file functions
+        from src.todoList import update_item
+        self.assertRaises(Exception, update_item(1,1,1,self.dynamodb))
+        print ('End: test_update_item_error')
 
 
 
