@@ -39,8 +39,8 @@ def get_item_translated(key, language, dynamodb=None):
         print('Result getItem:'+str(result))
         if 'Item' in result:
             # obtenemos el lenguaje del to-do
-            todoText = result['Item']['text']
-            result_comprehend = comprehend.detect_dominant_language(todoText)
+            t = result['Item']['text']
+            result_comprehend = comprehend.detect_dominant_language(Text=t)
             sourceLanguage = result_comprehend["Languages"][0]["LanguageCode"]
             # traducimos
             result_translate = translate.translate_text(
