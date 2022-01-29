@@ -217,6 +217,17 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertRaises(Exception, update_item(1,1,1,self.dynamodb))
         print ('End: test_update_item_error')
 
+    # Test de nueva funcion translate
+    def test_translate(self):
+        print ('---------------------')
+        print ('Start: test_translate')
+        # Testing file functions
+        from src.translate import get_item_translated
+        from src.todoList import put_item
+        responsePut = put_item("Hello", self.dynamodb)
+        idItem = json.loads(responsePut['body'])['id']
+        self.assertTrue(get_item_translated(idItem, "es", self.dynamodb) == "Hola")
+        print ('End: test_translate')        
 
 
 if __name__ == '__main__':
