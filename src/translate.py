@@ -21,7 +21,7 @@ def get_table(dynamodb=None):
 def get_item_translated(key, language, dynamodb=None):
     # cliente para traducir
     translate = boto3.client(service_name='translate',
-                              region_name='us-east-1')
+                             region_name='us-east-1')
     # cliente para detectar idioma de entrada
     comprehend = boto3.client(service_name='comprehend',
                               region_name='us-east-1')
