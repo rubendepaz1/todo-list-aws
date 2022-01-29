@@ -226,7 +226,9 @@ class TestDatabaseFunctions(unittest.TestCase):
         from src.todoList import put_item
         responsePut = put_item("Hello", self.dynamodb)
         idItem = json.loads(responsePut['body'])['id']
-        self.assertTrue(get_item_translated(idItem, "es", self.dynamodb) == "Hola")
+        self.assertTrue(get_item_translated(idItem,
+                                            "es",
+                                            self.dynamodb) == "Hola")
         print ('End: test_translate')        
 
 
