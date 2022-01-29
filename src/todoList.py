@@ -14,9 +14,10 @@ def get_table(dynamodb=None):
             URL = os.environ['ENDPOINT_OVERRIDE']
             if URL:
                 print('URL dynamoDB:'+URL)
-                boto3.client = functools.partial(boto3.client, endpoint_url=URL)
+                boto3.client = functools.partial(boto3.client,
+                                                 endpoint_url=URL)
                 boto3.resource = functools.partial(boto3.resource,
-                                                endpoint_url=URL)
+                                                   endpoint_url=URL)
             dynamodb = boto3.resource("dynamodb")
         # fetch todo from the database
         table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
@@ -148,5 +149,4 @@ def create_todo_table(dynamodb):
     table.meta.client.get_waiter('table_exists').wait(TableName=tableName)
     if (table.table_status != 'ACTIVE'):
         raise AssertionError()
-
     return table
