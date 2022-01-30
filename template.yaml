@@ -47,6 +47,7 @@ Resources:
       Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/LabRole"
       Handler: list.list
       Runtime: python3.7
+      AutoPublishAlias: live 
       Events:
         Create:
           Type: Api
